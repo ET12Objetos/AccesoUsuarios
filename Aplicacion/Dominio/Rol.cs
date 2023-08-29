@@ -1,3 +1,5 @@
+using Aplicacion.Dominio.Abstract;
+
 namespace Aplicacion.Dominio;
 public class Rol : EntidadBase
 {

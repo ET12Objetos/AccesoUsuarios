@@ -1,3 +1,5 @@
+using Aplicacion.Dominio.Abstract;
+
 namespace Aplicacion.Dominio;
 public class Usuario : EntidadBase
 {
@@ -7,7 +9,6 @@ public class Usuario : EntidadBase
     public Usuario(string nombre, string contraseña) : base(nombre)
     {
         this.Contraseña = contraseña;
-        this.Habilitado = false;
         this.RolesAsignados = new List<Rol>();
     }
 
