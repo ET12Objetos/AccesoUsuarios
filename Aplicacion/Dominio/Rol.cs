@@ -7,6 +7,6 @@ public class Rol : EntidadBase
     {
     }
 
-    // public void Habilitar() => this.Habilitado = true;
-    // public void Deshabilitar() => this.Habilitado = false;
+    public void Habilitar() => this.Habilitado = true;
+    public void Deshabilitar() => this.Habilitado = false;
 }

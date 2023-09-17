@@ -2,14 +2,9 @@ namespace Aplicacion.Dominio.Abstract;
 public abstract class EntidadAuditable
 {
     public DateTime FechaCreacion { get; private set; }
-    public string UsuarioCreacion { get; private set; }
+    public string UsuarioCreacion { get; private set; } = string.Empty;
     public DateTime FechaModificacion { get; private set; }
-    public string UsuarioModificacion { get; private set; }
-
-    public EntidadAuditable()
-    {
-
-    }
+    public string UsuarioModificacion { get; private set; } = string.Empty;
 
     public void Crear(string usuario)
     {
