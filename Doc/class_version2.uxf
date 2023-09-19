@@ -1,0 +1,62 @@
+<diagram program="umletino" version="15.1"><zoom_level>18</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>432</x><y>0</y><w>396</w><h>270</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+EntidadAuditable
+--
+- FechaCreacion: DateTime
+- UsuarioCreacion: string
+- FechaModificacion: DateTime
+- UsuarioModificacion: string
+--
+#Crear(string nombreUsuario)
+#Actualizar(string nombreUsuari)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>324</y><w>378</w><h>216</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+EntidadBase
+--
+- Id: Guid
+- Nombre: string
+- Habilitado: bool
+--
+#EntidadBase(string nombre)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>594</x><y>252</y><w>54</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>342</x><y>918</y><w>558</w><h>180</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+Administrador
+--
+- RolesExistentes: List&lt;Rol&gt;
+- Usuarios: List&lt;Usuario&gt;
+--
+#Administrador(string nombre, string contraseña)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>306</x><y>684</y><w>468</w><h>144</h></coordinates><panel_attributes>Usuario
+--
+- Contraseña: string
+- RolesAsignados: List&lt;Rol&gt;
+--
+#Usuario(string nombre, string contraseña)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>594</x><y>522</y><w>54</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>810</y><w>54</w><h>144</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>684</y><w>288</w><h>144</h></coordinates><panel_attributes>Rol
+--
+--
+#Rol(string nombre)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>126</x><y>522</y><w>450</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>230;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>684</y><w>594</w><h>180</h></coordinates><panel_attributes>Empleado
+--
+- Apellido: string
+- Email: string
+- Usuario: Usuario
+--
+#Empleado(string nombre, string apellido, string email)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>702</x><y>522</y><w>396</w><h>198</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;200;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>54</x><y>1188</y><w>558</w><h>180</h></coordinates><panel_attributes>AdministradorUsuario
+--
+- RolesExistentes: List&lt;Rol&gt;
+- Usuarios: List&lt;Usuario&gt;
+--
+#AdministradorUsuario(string nombre, string contraseña)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>684</x><y>1188</y><w>558</w><h>180</h></coordinates><panel_attributes>AdministradorRol
+--
+- RolesExistentes: List&lt;Rol&gt;
+- Usuarios: List&lt;Usuario&gt;
+--
+#AdministradorRol(string nombre, string contraseña)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>396</x><y>1080</y><w>126</w><h>144</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>684</x><y>1080</y><w>198</w><h>144</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;90;60</additional_attributes></element></diagram>
