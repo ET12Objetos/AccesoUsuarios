@@ -10,6 +10,7 @@ public class Usuario : EntidadBase
     {
         this.Contraseña = contraseña;
         this.RolesAsignados = new List<Rol>();
+        this.Crear("Administrador");
     }
 
     public void Habilitar() => this.Habilitado = true;

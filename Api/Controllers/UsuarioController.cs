@@ -1,4 +1,5 @@
 using Api.ViewModels;
+using Aplicacion.Dominio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
@@ -7,39 +8,38 @@ namespace Api.Controllers;
 [Route("api/[controller]")]
 public class UsuarioController : ControllerBase
 {
-    List<ProductoViewModel> productos;
+    List<Usuario> usuarios;
 
     public UsuarioController()
     {
-        productos = new List<ProductoViewModel>();
-
-        productos.Add(new ProductoViewModel() { Nombre = "Aceite", Descripcion = "Marolio" });
-        productos.Add(new ProductoViewModel() { Nombre = "Arroz", Descripcion = "Dos Hermanos" });
-        productos.Add(new ProductoViewModel() { Nombre = "Dulce de leche", Descripcion = "La Serenisima" });
+        usuarios = new List<Usuario>() {
+            new Usuario("Luciano", "1234"),
+            new Usuario("Ulises", "asdasd"),
+            new Usuario("Roque", "zxczxcz"),
+        };
     }
 
     [HttpGet]
     public ActionResult Get()
     {
-        return Ok(productos);
+        return Ok(usuarios);
     }
 
     [HttpPost]
-    public ActionResult Post(ProductoViewModel producto)
+    public ActionResult Post(UsuarioViewModel usuario)
     {
-        productos.Add(producto);
-        return Ok(productos);
+        return Ok("Usuario creado");
     }
 
     [HttpPut]
-    public ActionResult Put(int idProducto, ProductoViewModel producto)
+    public ActionResult Put(int idUsuario, UsuarioViewModel usuario)
     {
-        return Ok("Producto actualizado");
+        return Ok("Usuario actualizado");
     }
 
     [HttpDelete]
-    public ActionResult Delete(int idProducto)
+    public ActionResult Delete(int idUsuario)
     {
-        return Ok("Producto eliminado");
+        return Ok("Usuario eliminado");
     }
 }

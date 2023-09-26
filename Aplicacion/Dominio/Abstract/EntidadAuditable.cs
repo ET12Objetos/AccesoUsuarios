@@ -1,20 +1,20 @@
 namespace Aplicacion.Dominio.Abstract;
 public abstract class EntidadAuditable
 {
-    public DateTime FechaCreacion { get; private set; }
-    public string UsuarioCreacion { get; private set; } = string.Empty;
-    public DateTime FechaModificacion { get; private set; }
-    public string UsuarioModificacion { get; private set; } = string.Empty;
+    public DateTime FechaCreacion { get; protected set; }
+    public string UsuarioCreacion { get; protected set; } = string.Empty;
+    public DateTime FechaModificacion { get; protected set; }
+    public string UsuarioModificacion { get; protected set; } = string.Empty;
 
-    public void Crear(string usuario)
+    public void Crear(string usuarioCreacion)
     {
-        FechaCreacion = DateTime.Now;
-        UsuarioCreacion = usuario;
+        this.FechaCreacion = DateTime.Now;
+        this.UsuarioCreacion = usuarioCreacion;
     }
 
-    public void Actualizar(string usuario)
+    public void Actualizar(string usuarioModificacion)
     {
-        FechaModificacion = DateTime.Now;
-        UsuarioModificacion = usuario;
+        this.FechaModificacion = DateTime.Now;
+        this.UsuarioModificacion = usuarioModificacion;
     }
 }
