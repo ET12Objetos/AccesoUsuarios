@@ -15,6 +15,9 @@ public static class UsuarioEndpoints
             return Results.Ok(usuarioService.GetUsuarioById(idUsuario));
         });
 
-        app.MapPost("/api/usuario", ([FromServices] IUsuarioService usuarioService, UsuarioCommandRequestDto nuevoUsuario) => { return Results.Ok(usuarioService.CreateUsuario(nuevoUsuario)); });
+        app.MapPost("/api/usuario", ([FromServices] IUsuarioService usuarioService, UsuarioCommandRequestDto nuevoUsuario) =>
+        {
+            return Results.Ok(usuarioService.CreateUsuario(nuevoUsuario));
+        });
     }
 }

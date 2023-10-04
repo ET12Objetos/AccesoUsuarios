@@ -3,8 +3,8 @@ using Aplicacion.Dominio.Abstract;
 namespace Aplicacion.Dominio;
 public class Usuario : EntidadBase
 {
-    public string Contraseña { get; set; }
-    public List<Rol> RolesAsignados { get; protected set; }
+    public string Contraseña { get; set; } = string.Empty;
+    public List<Rol> RolesAsignados { get; protected set; } = new List<Rol>();
 
     public Usuario()
     {
