@@ -1,5 +1,4 @@
 using Aplicacion.Dominio;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Funcionalidades.Usuarios;
