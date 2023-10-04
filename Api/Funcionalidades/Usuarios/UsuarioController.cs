@@ -1,4 +1,3 @@
-using Aplicacion.Dominio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Funcionalidades.Usuarios;
@@ -7,16 +6,10 @@ namespace Api.Funcionalidades.Usuarios;
 [Route("api/[controller]")]
 public class UsuarioController : ControllerBase
 {
-    List<Usuario> usuarios;
     private readonly IUsuarioService usuarioService;
 
     public UsuarioController(IUsuarioService usuarioService)
     {
-        usuarios = new List<Usuario>() {
-            new Usuario("Luciano", "1234"),
-            new Usuario("Ulises", "asdasd"),
-            new Usuario("Roque", "zxczxcz"),
-        };
         this.usuarioService = usuarioService;
     }
 
@@ -43,4 +36,4 @@ public class UsuarioController : ControllerBase
     {
         return Ok("Usuario eliminado");
     }
-}
+}0
