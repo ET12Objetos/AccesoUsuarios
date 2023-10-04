@@ -6,4 +6,6 @@ public abstract class EntidadBase : EntidadAuditable
     public bool Habilitado { get; protected set; } = false;
 
     public EntidadBase(string nombre) => Nombre = nombre;
+
+    public EntidadBase() { }    
 }

@@ -1,5 +1,4 @@
-﻿using Api.Infraestructura;
-using Aplicacion.Dominio;
+﻿using Aplicacion.Dominio;
 using Mapster;
 
 namespace Api.Funcionalidades.Usuarios;
@@ -7,18 +6,16 @@ namespace Api.Funcionalidades.Usuarios;
 public interface IUsuarioService
 {
     IEnumerable<UsuarioQueryResponseDto> GetAllUsuarios();
+    UsuarioQueryResponseDto GetUsuarioById(Guid idUsuario);
+    UsuarioCommandResponseDto CreateUsuario(UsuarioCommandRequestDto nuevoUsuario);
 }
 
 public class UsuarioService : IUsuarioService
 {
-    private readonly AplicacionDbContext aplicacionDbContext;
-
     List<Usuario> usuarios;
 
-    public UsuarioService(AplicacionDbContext aplicacionDbContext)
+    public UsuarioService()
     {
-        this.aplicacionDbContext = aplicacionDbContext;
-
         usuarios = new List<Usuario>() {
             new Usuario("Luciano", "1234"),
             new Usuario("Ulises", "asdasd"),
@@ -26,9 +23,22 @@ public class UsuarioService : IUsuarioService
         };
     }
 
+    public UsuarioCommandResponseDto CreateUsuario(UsuarioCommandRequestDto usuario)
+    {
+        var nuevoUsuario = usuario.Adapt<Usuario>();
+
+        usuarios.Add(nuevoUsuario);
+
+        return nuevoUsuario.Adapt<UsuarioCommandResponseDto>();
+    }
+
     public IEnumerable<UsuarioQueryResponseDto> GetAllUsuarios()
     {
-        //return aplicacionDbContext.Usuarios.Adapt<IEnumerable<UsuarioQueryResponseDto>>();
         return usuarios.Adapt<IEnumerable<UsuarioQueryResponseDto>>();
+    }
+
+    public UsuarioQueryResponseDto GetUsuarioById(Guid idUsuario)
+    {
+        return usuarios.SingleOrDefault(u => u.Id == idUsuario).Adapt<UsuarioQueryResponseDto>();
     }
 }

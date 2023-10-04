@@ -6,6 +6,11 @@ public class Usuario : EntidadBase
     public string Contraseña { get; set; }
     public List<Rol> RolesAsignados { get; protected set; }
 
+    public Usuario()
+    {
+
+    }
+
     public Usuario(string nombre, string contraseña) : base(nombre)
     {
         this.Contraseña = contraseña;

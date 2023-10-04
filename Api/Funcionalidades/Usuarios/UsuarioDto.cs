@@ -1,20 +1,21 @@
+using Aplicacion.Dominio;
+
 namespace Api.Funcionalidades.Usuarios;
 
-public class UsuarioRequestDto
+public class UsuarioCommandRequestDto
 {
     public required string Nombre { get; set; }
+    public required string Contraseña { get; set; }
 }
-public class UsuarioDto : UsuarioRequestDto
+
+public class UsuarioQueryResponseDto
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
+    public required string Nombre { get; set; }
+    public required string Contraseña { get; set; }
 }
 
-public class UsuarioQueryResponseDto : UsuarioDto
-{
-
-}
-
-public class UsuarioCommandResponseDto
+public class UsuarioCommandResponseDto : UsuarioQueryResponseDto
 {
 
 }
