@@ -1,4 +1,6 @@
-using Api.Funcionalidades.Usuarios;
+using Api.Funcionalidades;
+using Carter;
+//using Api.Funcionalidades.Usuarios;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +11,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+builder.Services.AddFuncionalidadesServices();
+builder.Services.AddCarter();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 
-app.MapUsuarioEndpoints();
+app.MapCarter();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -2,8 +2,14 @@
 
 - Vertical slice
 - CQRS
-- Mappeador
+- Mapster
+- Carter
+- Logging
 
 ```
 dotnet add package mapster
+```
+
+```
+dotnet add package carter
 ```
