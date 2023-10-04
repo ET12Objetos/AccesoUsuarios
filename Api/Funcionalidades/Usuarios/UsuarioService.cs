@@ -1,4 +1,4 @@
-﻿using Api.Data;
+﻿using Api.Infraestructura;
 using Mapster;
 
 namespace Api.Funcionalidades.Usuarios;

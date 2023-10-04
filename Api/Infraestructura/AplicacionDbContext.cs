@@ -1,7 +1,7 @@
 ﻿using Aplicacion.Dominio;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Data
+namespace Api.Infraestructura
 {
     public class AplicacionDbContext : DbContext
     {

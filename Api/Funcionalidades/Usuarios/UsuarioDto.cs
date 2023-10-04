@@ -2,7 +2,7 @@ namespace Api.Funcionalidades.Usuarios;
 
 public class UsuarioRequestDto
 {
-    public string Nombre { get; set; }
+    public required string Nombre { get; set; }
 }
 public class UsuarioDto : UsuarioRequestDto
 {
