@@ -12,14 +12,24 @@ public class UsuarioEndpoints : ICarterModule
             return Results.Ok(usuarioService.GetAllUsuarios());
         });
 
-        app.MapGet("/api/usuario/{id}", ([FromServices] IUsuarioService usuarioService, Guid idUsuario) =>
-        {
-            return Results.Ok(usuarioService.GetUsuarioById(idUsuario));
-        });
+        // app.MapGet("/api/usuario/{id}", ([FromServices] IUsuarioService usuarioService, Guid idUsuario) =>
+        // {
+        //     return Results.Ok(usuarioService.GetUsuarioById(idUsuario));
+        // });
 
         app.MapPost("/api/usuario", ([FromServices] IUsuarioService usuarioService, UsuarioCommandRequestDto nuevoUsuario) =>
         {
             return Results.Ok(usuarioService.CreateUsuario(nuevoUsuario));
+        });
+
+        app.MapPost("/api/usuario/{idUsuario}/rol/{idRol}", ([FromServices] IUsuarioService usuarioService, Guid idUsuario, Guid idRol) =>
+        {
+            return Results.Ok(usuarioService.AssignRolToUsuario(idUsuario, idRol));
+        });
+
+        app.MapGet("/api/usuario/{idUsuario}/rol", ([FromServices] IUsuarioService usuarioService, Guid idUsuario) =>
+        {
+            return Results.Ok(usuarioService.GetAllRoles(idUsuario));
         });
     }
 }

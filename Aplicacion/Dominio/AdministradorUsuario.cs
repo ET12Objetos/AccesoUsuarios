@@ -1,14 +1,10 @@
 namespace Aplicacion.Dominio;
 public class AdministradorUsuario : Administrador
 {
-    public AdministradorUsuario(string nombre, string contraseña)
-        : base(nombre, contraseña)
-    {
-    }
+    public AdministradorUsuario() { }
 
-    public void CrearUsuario(string nombre, string contraseña)
-        => Usuarios.Add(new Usuario(nombre, contraseña));
+    public Administrador CrearUsuario(string nombre, string contraseña) => new(nombre, contraseña);
 
-    public Usuario BuscarUsuario(string nombre)
-        => Usuarios.First(x => x.Nombre.Equals(nombre));
+    // public Usuario BuscarUsuario(string nombre)
+    //     => Usuarios.First(x => x.Nombre.Equals(nombre));
 }

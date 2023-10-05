@@ -1,12 +1,17 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Aplicacion.Dominio;
-public abstract class Administrador : Usuario
+
+[Table("Administrador")]
+public class Administrador : Usuario
 {
-    public List<Rol> RolesExistentes { get; private set; }
-    public List<Usuario> Usuarios { get; private set; }
-    public Administrador(string nombre, string contraseña)
-    : base(nombre, contraseña)
+    public Administrador() { }
+    public Administrador(string nombre, string contraseña) : base(nombre, contraseña)
     {
-        RolesExistentes = new List<Rol>();
-        Usuarios = new List<Usuario>();
+    }
+    public void AsignarDatosCreacion()
+    {
+        UsuarioCreacion = Nombre;
+        FechaCreacion = DateTime.Now;
     }
 }

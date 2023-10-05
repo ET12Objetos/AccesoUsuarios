@@ -1,26 +1,23 @@
 namespace Aplicacion.Dominio;
 public class AdministradorRol : Administrador
 {
-    public AdministradorRol(string nombre, string contraseña)
-        : base(nombre, contraseña)
-    {
-    }
+    public AdministradorRol() { }
 
     public void AsignarRol(Usuario usuario, Rol rol)
-        => usuario.RolesAsignados.Add(rol);
+        => usuario.Roles.Add(rol);
 
     public Rol BuscarRol(string nombre)
-        => RolesExistentes.First(x => x.Nombre.Equals(nombre));
+        => Roles.First(x => x.Nombre.Equals(nombre));
 
     public void CrearRol(string nombre)
     {
         Rol nuevoRol = new Rol(nombre);
-        RolesExistentes.Add(nuevoRol);
+        Roles.Add(nuevoRol);
     }
 
     public void BorrarRol(string nombre)
     {
-        Rol rol = RolesExistentes.First(x => x.Nombre.Equals(nombre));
-        RolesExistentes.Remove(rol);
+        Rol rol = Roles.First(x => x.Nombre.Equals(nombre));
+        Roles.Remove(rol);
     }
 }
