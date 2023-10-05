@@ -19,27 +19,27 @@ public class UsuarioController : ControllerBase
         };
     }
 
-    [HttpGet]
-    public ActionResult Get()
-    {
-        return Ok(usuarios);
-    }
+    // [HttpGet]
+    // public ActionResult Get()
+    // {
+    //     return Ok(usuarios);
+    // }
 
-    [HttpPost]
-    public ActionResult Post(UsuarioViewModel usuario)
-    {
-        return Ok("Usuario creado");
-    }
+    // [HttpPost]
+    // public ActionResult Post(UsuarioViewModel usuario)
+    // {
+    //     return Ok("Usuario creado");
+    // }
 
-    [HttpPut]
-    public ActionResult Put(int idUsuario, UsuarioViewModel usuario)
-    {
-        return Ok("Usuario actualizado");
-    }
+    // [HttpPut]
+    // public ActionResult Put(int idUsuario, UsuarioViewModel usuario)
+    // {
+    //     return Ok("Usuario actualizado");
+    // }
 
-    [HttpDelete]
-    public ActionResult Delete(int idUsuario)
-    {
-        return Ok("Usuario eliminado");
-    }
+    // [HttpDelete]
+    // public ActionResult Delete(int idUsuario)
+    // {
+    //     return Ok("Usuario eliminado");
+    // }
 }
